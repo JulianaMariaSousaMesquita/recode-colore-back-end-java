@@ -2,12 +2,22 @@ package com.herokuapp.colorebackend.Colore.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+
+import org.springframework.data.annotation.Id;
 
 @Entity
+@Table
 public class Pessoa {
+	@GeneratedValue
+	@Id
 	private int id;
+	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String senha;
 	private String caminhoImagem;
 	
