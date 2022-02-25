@@ -14,13 +14,10 @@ public class Formacao {
 	@GeneratedValue
 	@Id
 	private int id;
-	@Column(nullable = false)
 	private String titulo;
 	@Column(nullable = false)
 	private String nivel;
-	@Column(nullable = false)
 	private String instituicao;
-	@Column(nullable = false)
 	private LocalDate dataInicio;
 	private LocalDate dataFim;
 	private String caminhoImagemDiploma;
