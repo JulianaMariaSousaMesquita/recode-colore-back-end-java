@@ -24,7 +24,7 @@ import com.herokuapp.colorebackend.Colore.repositories.EnderecoRepository;
 public class EnderecoController {
 private EnderecoRepository enderecoRepository;
 	
-	public EnderecoController() {
+	public EnderecoController(EnderecoRepository enderecoRepository) {
 		super();
 		this.enderecoRepository = enderecoRepository;
 	}

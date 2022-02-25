@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.herokuapp.colorebackend.Colore.models.Experiencia;
 
-import com.herokuapp.colorebackend.Colore.repositories.EnderecoRepository;
 import com.herokuapp.colorebackend.Colore.repositories.ExperienciaRepository;
 
 @RestController
@@ -25,7 +24,7 @@ import com.herokuapp.colorebackend.Colore.repositories.ExperienciaRepository;
 public class ExperienciaController {
 	private ExperienciaRepository experienciaRepository;
 	
-	public ExperienciaController() {
+	public ExperienciaController(ExperienciaRepository experienciaRepository) {
 		super();
 		this.experienciaRepository = experienciaRepository;
 	}

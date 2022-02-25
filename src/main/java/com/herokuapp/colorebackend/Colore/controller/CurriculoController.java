@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.herokuapp.colorebackend.Colore.models.Curriculo;
 import com.herokuapp.colorebackend.Colore.repositories.CurriculoRepository;
 
@@ -23,7 +24,7 @@ import com.herokuapp.colorebackend.Colore.repositories.CurriculoRepository;
 public class CurriculoController {
 	private CurriculoRepository curriculoRepository;
 	
-	public CurriculoController() {
+	public CurriculoController(CurriculoRepository curriculoRepository) {
 		super();
 		this.curriculoRepository = curriculoRepository;
 	}
