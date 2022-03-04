@@ -5,14 +5,15 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 @Entity
 @Table
 public class Formacao {
-	@GeneratedValue
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String titulo;
 	@Column(nullable = false)
@@ -26,10 +27,9 @@ public class Formacao {
 		super();
 	}
 
-	public Formacao(int id, String titulo, String nivel, String instituicao, LocalDate dataInicio, LocalDate dataFim,
+	public Formacao(String titulo, String nivel, String instituicao, LocalDate dataInicio, LocalDate dataFim,
 			String caminhoImagemDiploma) {
 		super();
-		this.id = id;
 		this.titulo = titulo;
 		this.nivel = nivel;
 		this.instituicao = instituicao;

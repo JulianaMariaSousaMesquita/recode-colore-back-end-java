@@ -4,14 +4,15 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 @Entity
 @Table
 public class Habilidades {
-	@GeneratedValue
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false)
 	private String tipo;
@@ -26,9 +27,8 @@ public class Habilidades {
 		super();
 	}
 
-	public Habilidades(int id, String tipo, String nome, String nivel, String tempo, String caminhoImagemComprovante) {
+	public Habilidades(String tipo, String nome, String nivel, String tempo, String caminhoImagemComprovante) {
 		super();
-		this.id = id;
 		this.tipo = tipo;
 		this.nome = nome;
 		this.nivel = nivel;

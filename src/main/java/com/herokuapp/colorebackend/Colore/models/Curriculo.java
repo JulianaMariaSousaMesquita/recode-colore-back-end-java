@@ -6,14 +6,15 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 @Entity
 @Table
-public class Curriculo {
-	@GeneratedValue
+public class Curriculo {	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false)
 	private String nome;
@@ -44,11 +45,10 @@ public class Curriculo {
 	public Curriculo() {
 		super();
 	}
-	public Curriculo(int id, String nome, String sobrenome, String nomeSocial, String orientacaoSexual,
+	public Curriculo(String nome, String sobrenome, String nomeSocial, String orientacaoSexual,
 			String identidadeGenero, String telefone, String cpf, String rg, LocalDate dataNascimento,
 			Endereco endereco, Formacao formacao, Experiencia experiencia, Habilidades habilidades) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.nomeSocial = nomeSocial;

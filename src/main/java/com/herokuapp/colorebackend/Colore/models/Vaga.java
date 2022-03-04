@@ -6,6 +6,7 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Id;
@@ -13,8 +14,8 @@ import org.springframework.data.annotation.Id;
 @Entity
 @Table
 public class Vaga {
-	@GeneratedValue
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false)
 	private String titulo;
@@ -39,10 +40,9 @@ public class Vaga {
 		super();
 	}
 
-	public Vaga(int id, String titulo, String cargo, double salario, String descricao, String beneficios,
+	public Vaga(String titulo, String cargo, double salario, String descricao, String beneficios,
 			LocalDate dataInicioInscricao, LocalDate dataFimInscricao, Formacao formacao, Requisitos requisitos) {
 		super();
-		this.id = id;
 		this.titulo = titulo;
 		this.cargo = cargo;
 		this.salario = salario;

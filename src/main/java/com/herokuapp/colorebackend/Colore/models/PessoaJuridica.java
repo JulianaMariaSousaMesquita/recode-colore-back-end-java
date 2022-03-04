@@ -5,14 +5,15 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 @Entity
 @Table
 public class PessoaJuridica extends Pessoa {
-	@GeneratedValue
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false)
 	private String titulo;
@@ -28,9 +29,8 @@ public class PessoaJuridica extends Pessoa {
 		super();
 	}
 
-	public PessoaJuridica(int id, String titulo, String telefone, String cnpj, Endereco endereco, List<Vaga> vagas) {
+	public PessoaJuridica(String titulo, String telefone, String cnpj, Endereco endereco, List<Vaga> vagas) {
 		super();
-		this.id = id;
 		this.titulo = titulo;
 		this.telefone = telefone;
 		this.cnpj = cnpj;

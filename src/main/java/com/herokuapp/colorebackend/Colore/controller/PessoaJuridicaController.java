@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.herokuapp.colorebackend.Colore.models.PessoaJuridica;
-import com.herokuapp.colorebackend.Colore.repositories.PessoaJuridicaRepository;
-
+import com.herokuapp.colorebackend.Colore.repository.PessoaJuridicaRepository;
+@CrossOrigin(origins = "http://localhost:3000/PessoaJuridica")
 @RestController
 @RequestMapping(value="/PessoaJuridica")
 public class PessoaJuridicaController {

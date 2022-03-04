@@ -4,14 +4,15 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 @Entity
 @Table
 public class Endereco {
-	@GeneratedValue
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false)
 	private int cep;
@@ -28,10 +29,9 @@ public class Endereco {
 		super();
 	}
 
-	public Endereco(int id, int cep, String rua, int numero, String complemento, String bairro, String cidade,
+	public Endereco(int cep, String rua, int numero, String complemento, String bairro, String cidade,
 			String uf, String pais) {
 		super();
-		this.id = id;
 		this.cep = cep;
 		this.rua = rua;
 		this.numero = numero;

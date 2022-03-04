@@ -5,6 +5,7 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Id;
@@ -12,8 +13,8 @@ import org.springframework.data.annotation.Id;
 @Entity
 @Table
 public class Pessoa {
-	@GeneratedValue
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false)
 	private String email;
@@ -25,9 +26,8 @@ public class Pessoa {
 		super();
 	}
 
-	public Pessoa(int id, String email, String senha, String caminhoImagem) {
+	public Pessoa(String email, String senha, String caminhoImagem) {
 		super();
-		this.id = id;
 		this.email = email;
 		this.senha = senha;
 		this.caminhoImagem = caminhoImagem;
