@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.herokuapp.colorebackend.Colore.models.Endereco;
 import com.herokuapp.colorebackend.Colore.repository.EnderecoRepository;
-@CrossOrigin(origins = "http://localhost:3000/Endereco")
+@CrossOrigin(origins = "https://colore-front-end.herokuapp.com/Endereco")
 @RestController
 @RequestMapping(value="/Endereco")
 public class EnderecoController {

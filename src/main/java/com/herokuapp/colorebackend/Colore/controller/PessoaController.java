@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.herokuapp.colorebackend.Colore.models.Pessoa;
 import com.herokuapp.colorebackend.Colore.repository.PessoaRepository;
-@CrossOrigin(origins = "http://localhost:3000/Pessoa")
+@CrossOrigin(origins = "https://colore-front-end.herokuapp.com/Pessoa")
 @RestController
 @RequestMapping(value="/Pessoa")
 public class PessoaController {

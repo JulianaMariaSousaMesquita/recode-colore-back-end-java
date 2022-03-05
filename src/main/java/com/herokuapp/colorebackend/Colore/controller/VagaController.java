@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.herokuapp.colorebackend.Colore.models.Vaga;
 import com.herokuapp.colorebackend.Colore.repository.VagaRepository;
 
-@CrossOrigin(origins = "http://localhost:3000/Vaga")
+@CrossOrigin(origins = "https://colore-front-end.herokuapp.com/Vaga")
 @RestController
 @RequestMapping(value="/Vaga")
 public class VagaController {

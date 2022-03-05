@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.herokuapp.colorebackend.Colore.models.Requisitos;
 import com.herokuapp.colorebackend.Colore.repository.RequisitosRepository;
-@CrossOrigin(origins = "http://localhost:3000/Requisitos")
+@CrossOrigin(origins = "https://colore-front-end.herokuapp.com/Requisitos")
 @RestController
 @RequestMapping(value="/Requisitos")
 public class RequisitosController {

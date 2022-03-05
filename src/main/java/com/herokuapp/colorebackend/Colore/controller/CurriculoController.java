@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.herokuapp.colorebackend.Colore.models.Curriculo;
 import com.herokuapp.colorebackend.Colore.repository.CurriculoRepository;
-@CrossOrigin(origins = "http://localhost:3000/Curriculo")
+@CrossOrigin(origins = "https://colore-front-end.herokuapp.com/Curriculo")
 @RestController
 @RequestMapping(value="/Curriculo")
 public class CurriculoController {

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.herokuapp.colorebackend.Colore.models.Experiencia;
 import com.herokuapp.colorebackend.Colore.repository.ExperienciaRepository;
-@CrossOrigin(origins = "http://localhost:3000/Experiencia")
+@CrossOrigin(origins = "https://colore-front-end.herokuapp.com/Experiencia")
 @RestController
 @RequestMapping(value="/Experiencia")
 public class ExperienciaController {
