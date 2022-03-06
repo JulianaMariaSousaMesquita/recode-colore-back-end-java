@@ -1,12 +1,15 @@
 package com.herokuapp.colorebackend.Colore.models;
 
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table
@@ -22,14 +25,16 @@ public class Requisitos {
 	private int tempoExperiencia;
 	@Column(nullable = false)
 	private String escolaridade;
-	private Habilidades habilidades;
+	@ManyToOne
+	@JoinColumn(name = "habilidades_id") 
+	private List<Habilidades> habilidades;
 	
 	public Requisitos() {
 		super();
 	}
 
 	public Requisitos(String areaAtuacao, String cargo, int tempoExperiencia, String escolaridade,
-			Habilidades habilidades) {
+			List<Habilidades> habilidades) {
 		super();
 		this.areaAtuacao = areaAtuacao;
 		this.cargo = cargo;
@@ -78,11 +83,11 @@ public class Requisitos {
 		this.escolaridade = escolaridade;
 	}
 
-	public Habilidades getHabilidades() {
+	public List<Habilidades> getHabilidades() {
 		return habilidades;
 	}
 
-	public void setHabilidades(Habilidades habilidades) {
+	public void setHabilidades(List<Habilidades> habilidades) {
 		this.habilidades = habilidades;
 	}
 
