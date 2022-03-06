@@ -8,8 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 @Table
@@ -32,8 +33,12 @@ public class Vaga {
 	@Column(nullable = false)
 	private LocalDate dataFimInscricao;
 	@Column(nullable = false)
+	@OneToOne
+	@JoinColumn(name = "formacao_id")
 	private Formacao formacao;
 	@Column(nullable = false)
+	@OneToOne
+	@JoinColumn(name = "requisitos_id")
 	private Requisitos requisitos;
 	
 	public Vaga() {
