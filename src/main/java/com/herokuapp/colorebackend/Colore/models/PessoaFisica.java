@@ -2,13 +2,14 @@ package com.herokuapp.colorebackend.Colore.models;
 
 import java.util.List;
 import java.util.Objects;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 @Table
@@ -16,8 +17,11 @@ public class PessoaFisica extends Pessoa{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(nullable = false)
+	@OneToOne
+	@JoinColumn(name = "curriculo_id") 
 	private Curriculo curriculo;
+	@ManyToMany
+	@JoinColumn(name = "vagas_id") 
 	private List<Vaga> vagas;
 	
 	public PessoaFisica() {
