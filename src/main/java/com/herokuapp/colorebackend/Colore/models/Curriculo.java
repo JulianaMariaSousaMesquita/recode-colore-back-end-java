@@ -1,14 +1,18 @@
 package com.herokuapp.colorebackend.Colore.models;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Table
@@ -33,21 +37,26 @@ public class Curriculo {
 	private String rg;
 	@Column(nullable = false)
 	private LocalDate dataNascimento;
-	@Column(nullable = false)
-	private Endereco endereco;
-	@Column(nullable = false)
-	private Formacao formacao;
-	@Column(nullable = false)
-	private Experiencia experiencia;
-	@Column(nullable = false)
-	private Habilidades habilidades;
+	@OneToOne
+	@JoinColumn(name = "endereco_id") 
+	private Endereco endereco;	
+	@ManyToOne
+    @JoinColumn(name = "formacao_id")
+	private List<Formacao>  formacao;	
+	@ManyToOne
+    @JoinColumn(name = "experiencia_id")
+	private List<Experiencia> experiencia;	
+	@ManyToOne
+    @JoinColumn(name = "habilidades_id")
+	private List<Habilidades> habilidades;
 	
 	public Curriculo() {
 		super();
 	}
-	public Curriculo(String nome, String sobrenome, String nomeSocial, String orientacaoSexual,
-			String identidadeGenero, String telefone, String cpf, String rg, LocalDate dataNascimento,
-			Endereco endereco, Formacao formacao, Experiencia experiencia, Habilidades habilidades) {
+
+	public Curriculo(String nome, String sobrenome, String nomeSocial, String orientacaoSexual, String identidadeGenero,
+			String telefone, String cpf, String rg, LocalDate dataNascimento, Endereco endereco,
+			List<Formacao> formacao, List<Experiencia> experiencia, List<Habilidades> habilidades) {
 		super();
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -63,95 +72,125 @@ public class Curriculo {
 		this.experiencia = experiencia;
 		this.habilidades = habilidades;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getSobrenome() {
 		return sobrenome;
 	}
+
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
+
 	public String getNomeSocial() {
 		return nomeSocial;
 	}
+
 	public void setNomeSocial(String nomeSocial) {
 		this.nomeSocial = nomeSocial;
 	}
+
 	public String getOrientacaoSexual() {
 		return orientacaoSexual;
 	}
+
 	public void setOrientacaoSexual(String orientacaoSexual) {
 		this.orientacaoSexual = orientacaoSexual;
 	}
+
 	public String getIdentidadeGenero() {
 		return identidadeGenero;
 	}
+
 	public void setIdentidadeGenero(String identidadeGenero) {
 		this.identidadeGenero = identidadeGenero;
 	}
+
 	public String getTelefone() {
 		return telefone;
 	}
+
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
 	public String getCpf() {
 		return cpf;
 	}
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 	public String getRg() {
 		return rg;
 	}
+
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
+
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
+
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	public Formacao getFormacao() {
+
+	public List<Formacao> getFormacao() {
 		return formacao;
 	}
-	public void setFormacao(Formacao formacao) {
+
+	public void setFormacao(List<Formacao> formacao) {
 		this.formacao = formacao;
 	}
-	public Experiencia getExperiencia() {
+
+	public List<Experiencia> getExperiencia() {
 		return experiencia;
 	}
-	public void setExperiencia(Experiencia experiencia) {
+
+	public void setExperiencia(List<Experiencia> experiencia) {
 		this.experiencia = experiencia;
 	}
-	public Habilidades getHabilidades() {
+
+	public List<Habilidades> getHabilidades() {
 		return habilidades;
 	}
-	public void setHabilidades(Habilidades habilidades) {
+
+	public void setHabilidades(List<Habilidades> habilidades) {
 		this.habilidades = habilidades;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(cpf, dataNascimento, endereco, experiencia, formacao, habilidades, id, identidadeGenero,
 				nome, nomeSocial, orientacaoSexual, rg, sobrenome, telefone);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -169,6 +208,7 @@ public class Curriculo {
 				&& Objects.equals(orientacaoSexual, other.orientacaoSexual) && Objects.equals(rg, other.rg)
 				&& Objects.equals(sobrenome, other.sobrenome) && Objects.equals(telefone, other.telefone);
 	}
+
 	@Override
 	public String toString() {
 		return "Curriculo [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", nomeSocial=" + nomeSocial
@@ -176,6 +216,8 @@ public class Curriculo {
 				+ telefone + ", cpf=" + cpf + ", rg=" + rg + ", dataNascimento=" + dataNascimento + ", endereco="
 				+ endereco + ", formacao=" + formacao + ", experiencia=" + experiencia + ", habilidades=" + habilidades
 				+ "]";
-	}	
+	}
+	
+	
 	
 }
