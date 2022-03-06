@@ -10,12 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "curriculo")
 public class Curriculo {	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,16 +37,20 @@ public class Curriculo {
 	private String rg;
 	@Column(nullable = false)
 	private LocalDate dataNascimento;
+	
 	@OneToOne
 	@JoinColumn(name = "endereco_id") 
 	private Endereco endereco;	
-	@ManyToOne
+	
+	@OneToMany
     @JoinColumn(name = "formacao_id")
 	private List<Formacao>  formacao;	
-	@ManyToOne
+	
+	@OneToMany
     @JoinColumn(name = "experiencia_id")
 	private List<Experiencia> experiencia;	
-	@ManyToOne
+	
+	@OneToMany
     @JoinColumn(name = "habilidades_id")
 	private List<Habilidades> habilidades;
 	

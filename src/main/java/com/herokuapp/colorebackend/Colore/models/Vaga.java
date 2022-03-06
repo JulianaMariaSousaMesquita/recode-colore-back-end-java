@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-@Table
+@Table(name = "vaga")
 public class Vaga {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,11 +32,9 @@ public class Vaga {
 	private LocalDate dataInicioInscricao;
 	@Column(nullable = false)
 	private LocalDate dataFimInscricao;
-	@Column(nullable = false)
 	@OneToOne
 	@JoinColumn(name = "formacao_id")
 	private Formacao formacao;
-	@Column(nullable = false)
 	@OneToOne
 	@JoinColumn(name = "requisitos_id")
 	private Requisitos requisitos;

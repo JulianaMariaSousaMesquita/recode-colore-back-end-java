@@ -9,10 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-@Table
+@Table(name = "requisitos")
 public class Requisitos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class Requisitos {
 	private int tempoExperiencia;
 	@Column(nullable = false)
 	private String escolaridade;
-	@ManyToOne
+	@OneToMany
 	@JoinColumn(name = "habilidades_id") 
 	private List<Habilidades> habilidades;
 	

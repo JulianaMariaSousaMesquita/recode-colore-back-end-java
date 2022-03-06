@@ -11,6 +11,6 @@ public class HomeController {
 	
 	@GetMapping
 	public String getHello() {
-		return "Estou funcionando!";
+		return "Estou funcionando! Acesse Front-End = https://colore-front-end.herokuapp.com/";
 	}
 }

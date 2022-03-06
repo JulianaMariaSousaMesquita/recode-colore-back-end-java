@@ -6,14 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-@Table
 public class PessoaJuridica extends Pessoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,11 +22,10 @@ public class PessoaJuridica extends Pessoa {
 	private String telefone;
 	@Column(nullable = false)
 	private String cnpj;
-	@Column(nullable = false)
 	@OneToOne
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
-	@ManyToOne
+	@OneToMany
 	@JoinColumn(name = "vagas_id") 
 	private List<Vaga> vagas;
 	
