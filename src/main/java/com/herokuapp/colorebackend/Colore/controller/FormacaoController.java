@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.herokuapp.colorebackend.Colore.models.Formacao;
 import com.herokuapp.colorebackend.Colore.repository.FormacaoRepository;
 
-@CrossOrigin(origins = "https://colore-front-end.herokuapp.com/Formacao")
+@CrossOrigin(origins = "https://colore-front-end.herokuapp.com")
 @RestController
 @RequestMapping(value="/Formacao")
 public class FormacaoController {

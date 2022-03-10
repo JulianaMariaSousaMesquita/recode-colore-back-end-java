@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.herokuapp.colorebackend.Colore.models.Habilidades;
 import com.herokuapp.colorebackend.Colore.repository.HabilidadesRepository;
-@CrossOrigin(origins = "https://colore-front-end.herokuapp.com/Habilidades")
+@CrossOrigin(origins = "https://colore-front-end.herokuapp.com")
 @RestController
 @RequestMapping(value="/Habilidades")
 public class HabilidadesController {
